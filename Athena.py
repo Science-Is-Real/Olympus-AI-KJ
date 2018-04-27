@@ -6,7 +6,8 @@ def command():
     Talk('Right now I can allow you to use these functions:',1)
     Talk('The familiarName() function   -Changes user name',1)
     Talk('The athImport() function  -Imports additional Athena functionality',1)
-    Talk('The locationGPS() function  -Gives you the gps coordinates of an address')
+    Talk('The locationGPS() function  -Gives you the gps coordinates of an address',1)
+    Talk('The time() function  -Gives you the current time')
 
 def familiarName(x=1):
     GlobalFile.User = str(input('What would you like me to call you?\n>>> '))
