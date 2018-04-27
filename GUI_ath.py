@@ -2,9 +2,8 @@ import time
 from tkinter import*
 root = Tk()
 curLabels = []
-curRow = 0
+curRow = 1
 lRow = 0
-Button(root, text = 'Quit', command = root.quit).grid(row = curRow, column = 0, sticky = 'w', pady = 4)
 def Talk(speech, x = 0):
     global curLabels
     global curRow
@@ -23,7 +22,7 @@ def Talk(speech, x = 0):
     root.update()
 def Listen(title):
     global lRow
-Button(root, text = 'Quit', command = root.quit).grid(row = curRow, column = 0, sticky = 'w', pady = 4)
+Button(root, text = 'Quit', command = root.quit).grid(row = 0, column = 0, sticky = 'w', pady = 4)
     
     
     
