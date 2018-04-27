@@ -24,6 +24,24 @@ def locationGPS():
     geocodeByAddressResults = geocodeByAddressChoreo.execute_with_results(geocodeByAddressInputs)
     Talk("Longitude: " + geocodeByAddressResults.get_Longitude,1())
     Talk("Latitude: " + geocodeByAddressResults.get_Latitude())
+
+def time():
+    import datetime
+    final = ''
+    dates = datetime.datetime.now()
+    dates2 = str(dates).split(' ')
+    time = dates2[1].split(':')
+    month1 = dates2[0].split('-')
+    month="JanFebMarAprMayJunJulAugSepOctNovDec"
+    number = int(month1[1])
+    n=number*3
+    final += str(month[n-3:n]) + ' ' + str(month1[2]) + ', ' + str(month1[0]) + ' '
+    if int(time[0]) > 12:
+        final += str(int(time[0]) - 12) + ':' + str(time[1])
+    else:
+        final += str(time[0]) + ':' + str(time[1])
+    print(final)
+
     
 def athImport():
     print("Ok, for me to import something I need the module's name, and it needs to contain the compatible '_ath' tag for me to utilize it.")
