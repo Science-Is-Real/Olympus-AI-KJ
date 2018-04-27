@@ -20,9 +20,11 @@ def Talk(speech, x = 0):
     if x == 0:
         Talk(" ",1)
     root.update()
+def button(Text, Command):
+    global curRow
+    Button(root, text = str(Text), command = Command).grid(row = curRow, column = 0, sticky = 'w', pady = 4)
+    
 def Listen(title):
     global lRow
-Button(root, text = 'Quit', command = root.quit).grid(row = 0, column = 0, sticky = 'w', pady = 4)
-    
-    
+Button(root, text = 'Quit', command = root.quit).grid(row = 0, column = 0, sticky = 'w', pady = 4)    
     
