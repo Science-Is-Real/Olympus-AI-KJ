@@ -2,6 +2,10 @@ from temboo import *
 from GUI_ath import *
 import GlobalFile
 
+#   TKinter interfaces:
+#   Buttons: button(Text, Command): allows you to make a button on the screen with a command to what it does
+#   Printing to the GUI: Talk(Text): allows you to print directly to the GUI
+
 def command():
     Talk('Right now I can allow you to use these functions:',1)
     Talk('The familiarName() function   -Changes user name',1)
@@ -41,7 +45,7 @@ def time():
         final += str(int(time[0]) - 12) + ':' + str(time[1])
     else:
         final += str(time[0]) + ':' + str(time[1])
-    print(final)
+    Talk(final)
 
     
 def athImport():

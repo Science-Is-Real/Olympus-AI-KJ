@@ -26,5 +26,5 @@ def button(Text, Command):
     
 def Listen(title):
     global lRow
-Button(root, text = 'Quit', command = root.quit).grid(row = 0, column = 0, sticky = 'w', pady = 4)    
+Button(root, text = 'Quit', command = root.destroy).grid(row = 0, column = 0, sticky = 'w', pady = 4)    
     
