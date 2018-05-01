@@ -1,4 +1,5 @@
 from GUI_ath import *
+from conversation_ath import *
 import GlobalFile
 
 #   TKinter interfaces:
@@ -10,6 +11,7 @@ def command():
     button('Rename', familiarName)
     button('Time', time)
     button('Import new modules', athImport)
+    button('Talk to me!', interests)
 
 def familiarName(x=1):
     GlobalFile.User = str(input('What would you like me to call you?\n>>> '))
@@ -19,18 +21,14 @@ def familiarName(x=1):
 def locationGPS():
     from temboo.Library.Google.Geocoding import GeocodeByAddress
     from temboo.core.session import TembooSession
-    locale = input('What is the address? ')
-    while locale[0] != int:
-        Talk("Sorry, that's not a valid address. Please put in a valid address or fix your input.")
-        locale = input('What is the address? ')
-    else:
-        session = TembooSession('jack727', 'myFirstApp', 'ZjdczC9s7nPiHX80gyXx7YxkoYVDQRBK')
-        geocodeByAddressChoreo = GeocodeByAddress(session)
-        geocodeByAddressInputs = geocodeByAddressChoreo.new_input_set()
-        geocodeByAddressInputs.set_Address(str(locale))
-        geocodeByAddressResults = geocodeByAddressChoreo.execute_with_results(geocodeByAddressInputs)
-        Talk("Longitude: " + geocodeByAddressResults.get_Longitude,1())
-        Talk("Latitude: " + geocodeByAddressResults.get_Latitude())
+    locale = str(input('What is the address? '))
+    session = TembooSession('jack727', 'myFirstApp', 'ZjdczC9s7nPiHX80gyXx7YxkoYVDQRBK')
+    geocodeByAddressChoreo = GeocodeByAddress(session)
+    geocodeByAddressInputs = geocodeByAddressChoreo.new_input_set()
+    geocodeByAddressInputs.set_Address(str(locale))
+    geocodeByAddressResults = geocodeByAddressChoreo.execute_with_results(geocodeByAddressInputs)
+    Talk("Longitude: " + geocodeByAddressResults.get_Longitude,1())
+    Talk("Latitude: " + geocodeByAddressResults.get_Latitude())
 
 def time():
     import datetime
