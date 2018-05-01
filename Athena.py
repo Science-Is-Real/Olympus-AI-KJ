@@ -1,4 +1,5 @@
 from GUI_ath import *
+import GlobalFile
 
 #   TKinter interfaces:
 #   Buttons: button(Text, Command): allows you to make a button on the screen with a command to what it does
@@ -11,10 +12,9 @@ def command():
     button('Import new modules', athImport)
 
 def familiarName(x=1):
-    global User
-    User = str(input('What would you like me to call you?\n>>> '))
+    GlobalFile.User = str(input('What would you like me to call you?\n>>> '))
     if x == 1:
-        Talk('Ok, ' + User + ', What would you like me to do now?')
+        Talk('Ok, ' + GlobalFile.User + ', What would you like me to do now?')
         
 def locationGPS():
     from temboo.Library.Google.Geocoding import GeocodeByAddress
@@ -51,16 +51,21 @@ def time():
 
     
 def athImport():
+    d = 0
     print("Ok, for me to import something I need the module's name, and it needs to contain the compatible '_ath' tag for me to utilize it.")
     print('Think of it as giving me notes to study so I can do more cool things for you. ^-^')
-    mod = input('What do you want me to import, ' + User + '?\n>>> ')
-    if str(mod[-4:]) != '_ath':
-        print('Sorry ' + User + ", I cant read this, I'm gonna need you to find me a program with the tag '_ath'")
-    else:
-        print('Ok, let me get this done. it may take a moment for me to finish it')
-        exec("import "+mod,globals())
-        exec("global "+mod,globals())
-        print("There we go, I've imported what you asked for, " + User + '.')
+    mod = input('What do you want me to import, ' + GlobalFile.User + '?\n>>> ')
+    while d != 1:
+        if str(mod[-4:]) != '_ath':
+            print('Sorry ' + User + ", I cant read this, I'm gonna need you to find me a program with the tag '_ath'")
+            mod = input('What do you want me to import, ' + GlobalFile.User + '?\n>>> ')
+            d = 0
+        else:
+            print('Ok, let me get this done. it may take a moment for me to finish it')
+            exec("import "+mod,globals())
+            exec("global "+mod,globals())
+            print("There we go, I've imported what you asked for, " + GlobalFile.User + '.')
+            d = 1
         
 Talk('Welcome to the Athena Network.',1)
 familiarName(0)
