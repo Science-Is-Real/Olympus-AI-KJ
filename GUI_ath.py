@@ -2,7 +2,7 @@ import time
 from tkinter import *
 root = Tk()
 curLabels = []
-curRow = 1
+curRow = 0
 lRow = 0
 def Talk(speech, x = 0):
     global curLabels
@@ -12,7 +12,7 @@ def Talk(speech, x = 0):
         curLabels[-1].grid(row=curRow,column=0,sticky="w")
     else:
         curLabels = curLabels[1:]
-        for x in range(100):
+        for x in range(10):
             curLabels[x].grid_forget()
             curLabels[x].grid(row=x,column=0,sticky="w")
         curLabels[-1].grid(row=10,column=0,sticky="w")
@@ -20,10 +20,11 @@ def Talk(speech, x = 0):
     if x == 0:
         Talk(" ",1)
     root.update()
+nowRow = 1
 def button(Text, Command):
-    global curRow
-    b = Button(root, text = str(Text), command = Command).grid(row = curRow, column = 0, sticky = 'w', pady = 4)
-    curRow += 1
+    global nowRow
+    b = Button(root, text = str(Text), command = Command).grid(row = nowRow, column = 1, sticky = 'w', pady = 4)
+    nowRow += 1
 def Listen(title):
     global lRow
-Button(root, text = 'Quit', command = root.destroy).grid(row = 0, column = 0, sticky = 'w', pady = 4)    
+Button(root, text = 'Quit', command = root.destroy).grid(row = 0, column = 1, sticky = 'w', pady = 4)    
