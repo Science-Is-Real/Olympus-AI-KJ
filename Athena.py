@@ -1,6 +1,8 @@
 from GUI_ath import *
 from conversation_ath import *
 import GlobalFile
+import os
+from os.path import join
 
 #   TKinter interfaces:
 #   Buttons: button(Text, Command): allows you to make a button on the screen with a command to what it does
@@ -12,6 +14,7 @@ def command():
     button('Time', time)
     button('Import new modules', athImport)
     button('Talk to me!', interests)
+    button('File Search', fileSearch)
 
 def familiarName(x=1):
     GlobalFile.User = str(input('What would you like me to call you?\n>>> '))
@@ -47,6 +50,13 @@ def time():
         final += str(time[0]) + ':' + str(time[1])
     Talk(final)
 
+def fileSearch():
+    lookfor = str(input('What file would you like to search for today?: '))
+    for root, dirs, files in os.walk('C:\\'):
+        #print("searching", root)
+        if lookfor in files:
+            print("Found: %s" % join(root, lookfor))
+            break
     
 def athImport():
     d = 0

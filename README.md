@@ -1,2 +1,2 @@
-# Olympus-AI-KJ
-Kaleb and Jack fork of Olympus-AI
+# Olympus AI
+For now, run athena.py in the python shell
