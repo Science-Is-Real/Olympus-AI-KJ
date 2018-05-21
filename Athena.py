@@ -72,16 +72,22 @@ def worldClock():
         dates = datetime.datetime.now()
         dates2 = str(dates).split(' ')
         time = dates2[1].split(':')
+        month1 = dates2[0].split('-')
+        month="JanFebMarAprMayJunJulAugSepOctNovDec"
+        number = int(month1[1])
+        n=number*3
+        day = month1[2]
         hour = int(time[0]) + dicti[user][0] + 4
         minute = int(time[1]) + dicti[user][1]
         if hour > 24:
-            hour = hour - 24 
+            hour = hour - 24
+            day += 1
         if minute > 59:
             minute = minute - 60
             if minute < 10:
                 minute = str(0) + str(minute)
         if user in dicti and user != 'Yeet':
-            string += str(user) + ' ' + str(hour) + ':' + str(minute)
+            string += str(user) + ' : ' + str(month[n-3:n]) + ' ' + str(day) + ', ' + str(month1[0]) + ' ' + str(hour) + ':' + str(minute)
 
         print(string)
     
@@ -92,19 +98,24 @@ def worldClock():
             dates = datetime.datetime.now()
             dates2 = str(dates).split(' ')
             time = dates2[1].split(':')
-            hour = int(time[0]) + dicti[user][0] +4
+            month1 = dates2[0].split('-')
+            month="JanFebMarAprMayJunJulAugSepOctNovDec"
+            number = int(month1[1])
+            n=number*3
+            day = int(month1[2])
+            hour = int(time[0]) + dicti[user][0] + 4
             minute = int(time[1]) + dicti[user][1]
             if hour > 24:
-                hour = hour - 24 
+                hour = hour - 24
+                day += 1
             if minute > 59:
                 minute = minute - 60
                 if minute < 10:
                     minute = str(0) + str(minute)
             if user in dicti and user != 'Yeet':
-                string += str(user) + ' ' + str(hour) + ':' + str(minute)
-
+                string += str(user) + ' : ' + str(month[n-3:n]) + ' ' + str(day) + ', ' + str(month1[0]) + ' ' + str(hour) + ':' + str(minute)
+    
             print(string)
-
     
 def athImport():
     d = 0
