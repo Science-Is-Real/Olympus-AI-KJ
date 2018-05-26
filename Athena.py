@@ -7,7 +7,7 @@ import datetime
 
 #   TKinter interfaces:
 #   Buttons: button(Text, Command): allows you to make a button on the screen with a command to what it does
-#   Printing to the GUI: Talk(Text): allows you to print directly to the GUI
+#   Printing to t`qhe GUI: Talk(Text): allows you to print directly to the GUI
 
 
 def command():

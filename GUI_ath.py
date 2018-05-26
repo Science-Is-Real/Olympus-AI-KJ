@@ -41,4 +41,3 @@ def callback():
     return e.get()
 
 
-
